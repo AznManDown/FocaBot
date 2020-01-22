@@ -13,6 +13,7 @@ class PlayerHUD
       # Show "Now Playing" when an item starts playing
       m = await item.textChannel.send l.gen(l.player.hud.nowPlaying, item.voiceChannel.name),
                                       embed: await @nowPlayingEmbed(item, l)
+      @util.setStatus("#{item.title}")
       await delay(5000)
       try m.delete() if s.autoDel
 

@@ -128,6 +128,7 @@ class PlayerCommands
     # Clear / Stop
     @registerCommand 'clear', { aliases: ['stop'], djOnly: true }, ({ msg, player, l })=>
       player.stop()
+      @util.setStatus("#{Core.properties.prefix}help")
       msg.channel.send l.player.queueCleared
 
     # Pause

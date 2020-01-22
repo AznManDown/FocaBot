@@ -199,4 +199,10 @@ class PlayerUtil
     itemCount = player.queue._d.items.filter((item)=> item.requestedBy is member.id).length
     return itemCount > player.guildData.data.settings.maxItems
 
+  setStatus: (sText)->
+    Core.bot.user.setPresence {
+      status: 'online'
+      game: name: sText
+    }
+
 module.exports = new PlayerUtil()

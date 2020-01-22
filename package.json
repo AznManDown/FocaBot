@@ -45,6 +45,7 @@
     "request": "^2.74.0",
     "request-promise": "^4.1.1",
     "require-reload": "^0.2.2",
+    "soundcloud": "^3.3.2",
     "tumblr.js": "^1.1.1",
     "ytdl-getinfo": "^1.0.5"
   },

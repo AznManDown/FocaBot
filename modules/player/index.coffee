@@ -50,8 +50,8 @@ class PlayerModule extends BotModule
     player.on 'suspended', (item)=> @e.emit('player.suspended', player, item)
     player.on 'seek', (item, time)=> @e.emit('player.seek', player, item, time)
     player.on 'filtersUpdated', (item)=> @e.emit('player.filtersUpdated', player, item)
-    player.on 'start', (item)=> @e.emit('player.start', player, item)
-    player.on 'end', (item)=> @e.emit('player.end', player, item)
+    player.on 'start', (item)=> @e.emit('player.start', player, item) + @util.setStatus("#{item.title}")
+    player.on 'end', (item)=> @e.emit('player.end', player, item) + @util.setStatus("#{Core.properties.prefix}help")
     player.on 'stopped', => @e.emit('player.stopped', player)
     player.queue.on 'newItem', (data)=> @e.emit('player.newQueueItem',
                                                      player, player.queue, data)

@@ -10,6 +10,7 @@ const focaBot = new Azarasi({
   version: '1.1.0 (Fabulous Flamenco)',
   prefix: process.env.BOT_PREFIX,
   token: process.env.BOT_TOKEN,
+  scid: process.env.CLIENTID,
   owner: JSON.parse(process.env.BOT_OWNER),
   admins: JSON.parse(process.env.BOT_ADMINS),
   adminRoles: JSON.parse(process.env.BOT_ADMIN_ROLES),

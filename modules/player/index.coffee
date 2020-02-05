@@ -45,14 +45,14 @@ class PlayerModule extends BotModule
     @_guilds[guild.id] = player
     @e.emit('newPlayer', player)
     # Relay all events
-    player.on 'playing', (item)=> @e.emit('player.playing', player, item)
-    player.on 'paused', (item)=> @e.emit('player.paused', player, item)
-    player.on 'suspended', (item)=> @e.emit('player.suspended', player, item)
+    player.on 'playing', (item)=> @e.emit('player.playing', player, item) + @util.setStatus("#{item.title}")
+    player.on 'paused', (item)=> @e.emit('player.paused', player, item) + @util.setStatus("#{Core.properties.prefix}help")
+    player.on 'suspended', (item)=> @e.emit('player.suspended', player, item) + @util.setStatus("#{Core.properties.prefix}help")
     player.on 'seek', (item, time)=> @e.emit('player.seek', player, item, time)
     player.on 'filtersUpdated', (item)=> @e.emit('player.filtersUpdated', player, item)
     player.on 'start', (item)=> @e.emit('player.start', player, item) + @util.setStatus("#{item.title}")
     player.on 'end', (item)=> @e.emit('player.end', player, item) + @util.setStatus("#{Core.properties.prefix}help")
-    player.on 'stopped', => @e.emit('player.stopped', player)
+    player.on 'stopped', => @e.emit('player.stopped', player) + @util.setStatus("#{Core.properties.prefix}help")
     player.queue.on 'newItem', (data)=> @e.emit('player.newQueueItem',
                                                      player, player.queue, data)
     player.queue.on 'removed', (data)=> @e.emit('player.queueRemoved',

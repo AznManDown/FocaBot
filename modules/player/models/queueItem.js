@@ -265,7 +265,7 @@ class QueueItem {
       if (filter.FFMPEGFilter) filters.push(filter.FFMPEGFilter)
     })
     // Append the filters
-    if (filters.length) flags.output.push('-af', filters.join(', '))
+    if (filters.length) flags.output.push('-af', "loudnorm=LRA=12, " + filters.join(', '))
     // Current Time
     if (this.originalTime > 0) flags.input.push('-ss', this.originalTime)
     return flags

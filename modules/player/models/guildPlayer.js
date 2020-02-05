@@ -56,6 +56,7 @@ class GuildPlayer extends EventEmitter {
         item.flags,
         item.time
       )
+      console.log(item.flags)
       // Set bot as self deafen
       // item.voiceChannel.join(false, true)
       item.status = 'playing'
